@@ -1,0 +1,8 @@
+package VirtualKey;
+
+import java.util.*;
+import java.io.*;
+
+public class MainMenu {
+
+}

@@ -1,0 +1,44 @@
+package VirtualKey;
+
+import java.util.*;
+import java.io.*;
+
+public class FileOperations {
+	
+	void addFile(String filename) throws IOException {
+        File filepath = new File(folder_name +"/"+filename);
+        String[] list = folder_name.list();
+        for (String file: list) {
+            if (filename.equalsIgnoreCase(file)) {
+                System.out.println("File " + filename + " is already exists at " + folder_name);
+                return;
+            }
+        }
+        filepath.createNewFile();
+        System.out.println("File "+filename+"is added to "+ folder_name+" Successfully");
+    }
+
+    void deleteFile(String filename) {
+        File filepath = new File(folder_name +"/"+filename);
+        String[] list = folder_name.list();
+        for (String file: list) {
+            if (filename.equals(file) && filepath.delete()) {
+                System.out.println("File " + filename + " deleted from " + folder_name);
+                return;
+            }
+        }
+        System.out.println("Delete Operation failed. FILE NOT FOUND");
+    }
+
+    void searchFile(String filename) {
+        String[] list = folder_name.list();
+        for (String file: list) {
+            if (filename.equals(file)) {
+                System.out.println("FOUND : File " + filename + " Exists at " + folder_name);
+                return;
+            }
+        }
+        System.out.println("File NOT found");
+    }
+	
+}

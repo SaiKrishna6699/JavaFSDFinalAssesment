@@ -1,0 +1,33 @@
+package VirtualKey;
+
+import java.util.*;
+import java.io.*;
+
+public class LockedMeDir {
+	static String DIRECTORY;
+	File folder_name;
+	
+	public LockedMeDir() {
+		DIRECTORY = System.getProperty("user.dir");
+		folder_name = new File(DIRECTORY+"/Files");
+		if(!folder_name.exists()) {
+			folder_name.mkdirs();
+		}
+		System.out.print("Directory: " + folder_name.getAbsolutePath() + "\n");	
+	}
+	
+	private static final String WELCOME =
+            "\n######### LockedMe.com ###############"+
+              "\nDeveloped By : RAJAGOPAL SAI KRISHNA ";
+    private static final String mainmenu1=
+            "\nMAIN MENU - choose following option to experience lockedMe.com : \n"+
+                    "\n1:List files in directory"+
+                    "\n2:Add,Search or Delete"+
+                    "\n3:Exit Program";
+    
+    public static void main(String[] args) {
+        System.out.println(WELCOME);
+        LockedMeDir menu = new LockedMeDir();
+        menu.Menu1();
+    }
+}

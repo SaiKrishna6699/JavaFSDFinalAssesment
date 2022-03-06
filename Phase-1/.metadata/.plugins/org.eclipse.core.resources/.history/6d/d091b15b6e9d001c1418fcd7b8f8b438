@@ -1,0 +1,7 @@
+package VirtualKey;
+
+public class LockedMeDir {
+	static String DIRECTORY;
+	File folder_name;
+
+}

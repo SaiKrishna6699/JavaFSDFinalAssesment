@@ -1,0 +1,93 @@
+package VirtualKey;
+
+import java.util.*;
+import java.io.*;
+
+public class MainMenu extends FileOperations{
+	
+	FileOperations fo = new FileOperations();
+	
+	public static String MainMenu = "\n"
+			+ "MAIN MENU - choose following option to experience lockedMe.com :"
+			+ "\n1 -- List files in directory"
+			+ "\n2 -- Add,Search or Delete"
+            + "\n3 -- Exit Program";
+	
+	void Main_Menu() {
+    	System.out.println(MainMenu);
+        try{
+            Scanner sc = new Scanner(System.in);
+            int choose = sc.nextInt();
+            switch (choose){
+                case 1 : {
+                    fo.sortingFiles();
+                    Main_Menu();
+                }
+                case 2 : {
+                    Menu2();
+                }
+                case 3 : {
+                    System.out.println("Thank You For Using LockedMe Directory");
+                    System.exit(0);
+                }
+                default: Menu1();
+            }
+            sc.close();
+        }
+        catch (Exception e){
+            System.out.println("Please Enter Option 1, 2 or 3");
+            Menu1();
+        }
+    }
+	
+	void Menu2() {
+        System.out.println("\nSelect any of the following Option: \n"+
+                " 4 -- Add a file\n"+
+                " 5 -- Search a file\n"+
+                " 6 -- Delete a file\n"+
+                " 7 -- Go Back menu1");
+        try{
+            Scanner sc = new Scanner(System.in);
+            char[] input = sc.nextLine().toLowerCase().trim().toCharArray();
+            int i = input[0];
+
+            switch (i){
+                case '4' : {
+                	System.out.println();
+                    System.out.print("For Adding a File into Directory \n Please Enter a File Name : ");
+                    String filename = sc.next().toLowerCase();
+                    fo.addFile(filename);
+                    break;
+                }
+                case '5' : {
+                	System.out.println();
+                    System.out.print("For Searching a File from Directory \n Please Enter a File Name : ");
+                    String filename = sc.next();
+                    fo.searchFile(filename);
+                    break;
+                }
+
+                case '6' : {
+                    System.out.print("For Deleting a File from Directory. \n Please Enter a File Name : ");
+                    String filename = sc.next();
+                    fo.deleteFile(filename);
+                    break;
+                }
+                   case '7' : {
+                	System.out.println();
+                    System.out.println("return to main menu");
+                    Menu1();
+                    break;
+                }
+                default : System.out.println("Please enter Otion 4, 5, 6 or 7");
+            }
+            Menu2();
+            sc.close();
+        }
+        catch (Exception e){
+            System.out.println("Please enter Option 4, 5, 6 or 7");
+            Menu2();
+        }
+    }
+
+}

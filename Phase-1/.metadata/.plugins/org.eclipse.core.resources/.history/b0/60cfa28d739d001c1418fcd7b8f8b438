@@ -1,0 +1,41 @@
+package VirtualKey;
+
+import java.util.*;
+import java.io.*;
+
+public class MainMenu extends FileOperations{
+	
+	public static String MainMenu = "\n"
+			+ "MAIN MENU - choose following option to experience lockedMe.com :"
+			+ "\n1:List files in directory"
+			+ "\n2:Add,Search or Delete"
+            + "\n3:Exit Program";
+	
+	void Menu1() {
+    	System.out.println(MainMenu);
+        try{
+            Scanner sc = new Scanner(System.in);
+            int choose = sc.nextInt();
+            switch (choose){
+                case 1 : {
+                    sortingFiles();
+                    Menu1();
+                }
+                case 2 : {
+                    Menu2();
+                }
+                case 3 : {
+                    System.out.println("Thank You For Using LockedMe");
+                    System.exit(0);
+                }
+                default: Menu1();
+            }
+            sc.close();
+        }
+        catch (Exception e){
+            System.out.println("Please Enter Option 1, 2 or 3");
+            Menu1();
+        }
+    }
+
+}

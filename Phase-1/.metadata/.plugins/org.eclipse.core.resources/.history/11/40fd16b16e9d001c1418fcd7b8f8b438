@@ -1,0 +1,15 @@
+package VirtualKey;
+
+import java.util.*;
+import java.io.*;
+
+public class LockedMeDir {
+	static String DIRECTORY;
+	File folder_name;
+	
+	public LockedMeDir() {
+		DIRECTORY = System.getProperty("user.dir");
+		folder_name = new File(DIRECTORY+"/Files");
+	}
+
+}
